@@ -1,2 +1,2 @@
 #!/bin/bash
-export course is : "Devsecops with aws"
+echo course is : "$COURSE"
