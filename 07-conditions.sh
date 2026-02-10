@@ -23,3 +23,14 @@ else
     echo "$number is equal to zero"
 fi
 
+if[ $? -ne 0]; then
+    echo "you need root access to execute"
+else
+    echo "successfully loggedin"
+fi
+
+if[ raining]; then
+    echo "umbrella"
+else
+    echo "sunglasses"
+fi
