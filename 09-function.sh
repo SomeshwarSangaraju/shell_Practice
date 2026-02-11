@@ -2,15 +2,13 @@
 
 USER=$(id -u)
 
-echo "$User"
-
-if [$USER -ne 0]; then
+if [ $USER -ne 0 ]; then
     echo "ERROR:: Please run this with root access"
     exit 1
 fi
 
 VALIDATES(){
-    if [ $? -ne 0]; then
+    if [ $? -ne 0 ]; then
         echo "$1 installation is success"
     else
         echo "$1 installation is failed"
