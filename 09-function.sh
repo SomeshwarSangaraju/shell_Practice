@@ -8,7 +8,7 @@ if [ $USER -ne 0 ]; then
 fi
 
 VALIDATES(){
-    if [ $1 -ne 0 ]; then
+    if [ $? -ne 0 ]; then
         echo "$2 installation is failed"
         exit 1
     else
@@ -17,10 +17,10 @@ VALIDATES(){
 }
 
 dnf install mysql -y
-VALIDATES $? mysql
+VALIDATES mysql
 
 dnf install nginx -y
-VALIDATES $? nginx
+VALIDATES nginx
 
 dnf install mongodb -y
-VALIDATES $? mongodb
+VALIDATES mongodb
