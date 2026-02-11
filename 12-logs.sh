@@ -15,20 +15,20 @@ mkdir -p $LOGS_FOLDER
 
 VALIDATES(){
     if [ $? -ne 0 ]; then
-        echo "$1 installation is failed"
+        echo "$1 installation is failed" | tee -a $LOG_FILE
         exit 10
     else
-        echo "$1 installation is success"
+        echo "$1 installation is success" | tee -a $LOG_FILE
     fi
 }
 
 for package in "$@"
 do 
-    dnf list installed $package
+    dnf list installed $package &>> $LOG_FILE
     if [ $? -ne 0 ]; then
-        dnf install $package -y
+        dnf install $package -y &>> $LOG_FILE
         VALIDATES "$package"
     else
-        echo "$package already exist"
+        echo "$package already exist" | tee -a $LOG_FILE
     fi
 done
