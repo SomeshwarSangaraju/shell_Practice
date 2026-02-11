@@ -9,7 +9,7 @@ fi
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" #/var/log/shell-script/12-logs.log
 
 mkdir -p $LOGS_FOLDER
 
@@ -22,7 +22,7 @@ VALIDATES(){
     fi
 }
 
-for $package in "$@"
+for package in "$@"
 do 
     dnf list installed $package
     if [ $? -ne 0 ]; then
