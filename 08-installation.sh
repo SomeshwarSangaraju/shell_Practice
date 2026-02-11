@@ -7,10 +7,11 @@ if [$USER -ne 0]; then
     exit 1
 fi
 
-dnf install mysql -y
+
+dnf list installed mysql -y
 
 if [ $? -ne 0]; then
-    echo "mysql installation failed"
+    dnf install mysql -y
 else
-    echo "mysql installation success"
+    echo "already exist"
 fi
