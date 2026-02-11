@@ -22,5 +22,5 @@ VALIDATES mysql
 dnf install nginx -y
 VALIDATES nginx
 
-dnf install mongodb -y
-VALIDATES mongodb
+dnf install python3 -y
+VALIDATES python3
