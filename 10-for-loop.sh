@@ -24,4 +24,5 @@ do
         VALIDATES "$pkg"
     else
         echo "$pkg already exist"
+    fi
 done
