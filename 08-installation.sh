@@ -2,6 +2,8 @@
 
 USER=$(id -u)
 
+echo "$User"
+
 if [$USER -ne 0]; then
     echo "Install with root access"
     exit 1
