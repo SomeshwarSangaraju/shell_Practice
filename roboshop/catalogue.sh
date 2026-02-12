@@ -1,8 +1,9 @@
 #!/bin/bash
 
-set -euo pipefail
+# set -euo pipefail
 
-trap "the line no is :$LINENO, error in  $BASH_COMMAND ERR"
+# # trap "echo 'the line no is :$LINENO, error in  $BASH_COMMAND' AND"
+# trap 'echo "There is an error in $LINENO, Command is: $BASH_COMMAND"' ERR
 
 USERID=$(id -u)
 
@@ -12,6 +13,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 LOGS_FOLDER="/var/log/shell-script"
+
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME.log
 
