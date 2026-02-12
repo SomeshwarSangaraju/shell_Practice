@@ -13,7 +13,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 LOGS_FOLDER="/var/log/shell-script"
-SCRIPT_NAME=$( $0 | cut -d "." -f1)
+SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME.log
 
 mkdir -p $LOGS_FOLDER
@@ -26,8 +26,10 @@ VALIDATES(){
     fi
 }
 
+
 cp "mongo.repo" "/etc/yum.repos.d/mongo.repo"
 VALIDATES "adding mongo repo"
+echo "copying mongo repo" | tee -a "$LOG_FILE"
 
 dnf list installed mysql &>> "$LOG_FILE"
 if [ $? -ne 0 ]; then
@@ -36,15 +38,20 @@ if [ $? -ne 0 ]; then
 else
     echo "$1 already exists" | tee -a "$LOG_FILE"
 fi
+echo "installing mongodb" | tee -a "$LOG_FILE"
 
 systemctl enable mongod &>> "$LOG_FILE"
 VALIDATES "enabling mongod"
+echo "enable mongod" | tee -a "$LOG_FILE"
 
 systemctl start mongod &>> "$LOG_FILE"
 VALIDATES "starting mongod"
+echo "starting mongodb" | tee -a "$LOG_FILE"
 
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 VALIDATES "adding remote connection"
+echo "adding remote connection to mongodb" | tee -a "$LOG_FILE"
 
 systemctl restart mongod &>> "$LOG_FILE"
 VALIDATES "restarting mongod"
+echo "restarting mongodb" | tee -a "$LOG_FILE"
