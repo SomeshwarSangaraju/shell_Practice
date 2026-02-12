@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-trap "the line no is :$LINE_NO, error in  $BASH_COMMAND ERR"
+trap "the line no is :$LINENO, error in  $BASH_COMMAND ERR"
 
 USERID=$(id -u)
 
