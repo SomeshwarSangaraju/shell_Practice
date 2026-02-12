@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipelines
+set -euo pipeline
 
 trap "the line no is :$LINE_NO, error in  $BASH_COMMAND ERR"
 
