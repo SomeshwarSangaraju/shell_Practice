@@ -1,12 +1,13 @@
 #!/bin/bash
 
-LOGS_FOLDER="/var/log/app-logs"
+LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOGS_FILE=$LOGS_FOLDER/$LOG_FILE.log
+LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME.log
 
-mkdir -p $LOG_FILE
+mkdir -p $LOGS_FOLDER
+echo "Script started executed at: $(date)" | tee -a $LOG_FILE
 
-SOURCE_DIR=/home/ec-user/app-logs
+SOURCE_DIR=/home/ec2-user/app-logs
 
 if [ ! -d $SOURCE_DIR ]; then
     echo "ERROR:: $1 file does not exists"
@@ -24,4 +25,3 @@ do
     rm -rf $filepath
     echo "Deleted the file: $filepath"
 done <<< $FILES_TO_DELETE
-
