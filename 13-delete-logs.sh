@@ -8,7 +8,7 @@ mkdir -p $LOG_FILE
 
 SOURCE_DIR=/home/ec-user/app-logs
 
-if [ ! -d $SOURCE_DIR -ne 0 ]; then
+if [ ! -d $SOURCE_DIR ]; then
     echo "ERROR:: $1 file does not exists"
     exit 1
 fi
