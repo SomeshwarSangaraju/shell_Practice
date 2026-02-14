@@ -75,3 +75,13 @@ fi
 # else
 #     echo -e "No files to archeive ... $Y SKIPPING $N"
 # fi
+
+
+FILES=$(find $SOURCE_DIR -name ".log" -type f -mtime +14)
+
+count= $1
+while [ $count -gt 0 ]
+do 
+    echo "counting :$count"
+    count=$((count-1))
+done
