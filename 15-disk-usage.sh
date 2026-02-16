@@ -9,7 +9,7 @@ do
     Usage=$(echo $line | awk '{print $6}' | cut -d "%" -f1 )
     Partition=$(echo $line | awk '{print $7}')
     if [ $Usage -gt $DISK_THRESHOLD ]; then
-       message+=echo " $PARTITION : $Usage" 
+       message+=echo " $Partition : $Usage" 
     fi
 
 done <<< $Disk_Usage
