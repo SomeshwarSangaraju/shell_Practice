@@ -1,15 +1,18 @@
 #!/bin/bash
 
-Disk_Usage=$(df -hT | grep -v Filesystem ) 
-Disk_Threshold=75
-Message=""
+DISK_USAGE=$(df -hT | grep -v Filesystem ) 
+DISK_THRESHOLD=75
+IP_ADDRESS=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
+MESSAGE=""
 
 while IFS= read -r flinee
 do
-    Usage=$(echo $line | awk '{print $6}' | cut -d "%" -f1 )
-    Partition=$(echo $line | awk '{print $7}')
-    if [ $Usage -gt $DISK_THRESHOLD ]; then
-       message+=echo " $Partition : $Usage" 
+    USAGE=$(echo $line | awk '{print $6}' | cut -d "%" -f1 )
+    PARTITION=$(echo $line | awk '{print $7}')
+    if [ $USAGE -gt $DISK_THRESHOLD ]; then
+       MESSAGE+="High Disk usage on $PARTITION: $USAGE % <br>" # escaping
     fi
 
-done <<< $Disk_Usage
+done <<< $DISK_USAGE
+
+echo -e "Message Body: $MESSAGE"
