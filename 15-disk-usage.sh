@@ -1,7 +1,9 @@
 #!/bin/bash
 
-usage=$(df -hT | grep -v Filesystem ) 
+Disk_Usage=$(df -hT | grep -v Filesystem ) 
+Disk_Threshold=75
 
-# if [ $usage -gt 80 ]; then
-#     echo "High disk alert $usage"
-# fi
+while IFS=read -r line
+do
+    echo "line : $line"
+done <<< $line
