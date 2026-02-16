@@ -3,7 +3,7 @@
 Disk_Usage=$(df -hT | grep -v Filesystem ) 
 Disk_Threshold=75
 
-while IFS=read -r line
+while IFS=read -r file
 do
-    echo "line : $line"
+    echo "file : $file"
 done <<< $Disk_Usage
