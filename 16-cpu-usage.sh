@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CPU_USAGE=$(top | grep -v PID)
-CPU_THRESHOLD=0.1 # By default 75 in projects
+CPU_THRESHOLD=0 # By default 75 in projects
 IP_ADDRESS=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
 MESSAGE=""
 
