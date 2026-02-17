@@ -14,10 +14,10 @@ do
     fi
 done <<< $DISK_USAGE
 
-echo -e "$MESSAGE"
+echo -e "Message Body: $MESSAGE"
 
 
-sh gmail.sh "Devops Team" "High disk usage" "High disk usage alert" "$MESSAGE" "someshwar.sangaraju19@gmail.com" "$IP_ADDRESS"
+sh mail.sh "someshwar.sangaraju19@gmail.com" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
 
 # TO_TEAM=$1
 # SUBJECT=$2
