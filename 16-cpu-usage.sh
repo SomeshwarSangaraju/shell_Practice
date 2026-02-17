@@ -14,7 +14,7 @@ do
     fi
 done <<< $DISK_USAGE
 
-echo -e "Message : $MESSAGE"
+echo -e "$MESSAGE"
 
 
 sh gmail.sh "Devops Team" "High disk usage" "High disk usage alert" "$MESSAGE" "someshwar.sangaraju19@gmail.com" "$IP_ADDRESS"
