@@ -18,9 +18,9 @@ echo -e "Message Body : $MESSAGE"
 
 sh mail.sh "someshwar.sangaraju19@gmail.com" "High cpu usage alert" "High cpu usage" "$MESSAGE" "$IP_ADDRESS" "Monitoring team"
 
-TO_ADDRESS=$1
-SUBJECT=$2
-ALERT_TYPE=$3
-MESSAGE_BODY=$4
-IP_ADDRESS=$5
-TO_TEAM=$6
+# TO_ADDRESS=$1
+# SUBJECT=$2
+# ALERT_TYPE=$3
+# MESSAGE_BODY=$4
+# IP_ADDRESS=$5
+# TO_TEAM=$6
