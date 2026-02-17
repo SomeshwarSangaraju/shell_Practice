@@ -10,7 +10,7 @@ do
     USAGE=$(echo $line | awk '{print $9}' )
     PARTITION=$(echo $line | awk '{print $11}')
     if [ $Usage -ge $CPU_THRESHOLD ]; then
-        MESSAGE+="High cpu usage $PARTITION : $USAGE"
+        MESSAGE+="High cpu usage $PARTITION : $USAGE% <br>"
     fi
 done <<< $CPU_USAGE
 
