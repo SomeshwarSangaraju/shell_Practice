@@ -14,7 +14,7 @@ do
     fi
 done <<< $CPU_USAGE
 
-echo "Message Body : $MESSAGE"
+echo -e "Message Body : $MESSAGE"
 
 sh mail.sh "someshwar.sangaraju19@gmail.com" "High cpu usage alert" "High cpu usage" "$MESSAGE" "$IP_ADDRESS" "Monitoring team"
 
