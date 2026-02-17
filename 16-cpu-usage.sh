@@ -12,7 +12,7 @@ do
     if [ $Usage -ge $CPU_THRESHOLD ]; then
         MESSAGE+="High cpu usage $PARTITION : $USAGE"
     fi
-done <<< CPU_USAGE
+done <<< $CPU_USAGE
 
 echo "Message Body : $MESSAGE"
 
